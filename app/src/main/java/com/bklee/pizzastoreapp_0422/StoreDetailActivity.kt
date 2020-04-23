@@ -6,7 +6,7 @@ import com.bklee.pizzastoreapp_0422.datas.Store
 
 class StoreDetailActivity : BaseActivity() {
 
-    private lateinit var storeData: Store
+    private lateinit var storeData:Store
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +22,13 @@ class StoreDetailActivity : BaseActivity() {
     override fun setValues() {
 
         storeData = intent.getSerializableExtra("storeData") as Store
+
+        storeNameTxt.text = storeData.name
+        storePhoneTxt.text = storeData.phoneNum
+
+        Glide.with(mContext).load(storeData.logoUrl).into(storeLogoImg)
+
+
 
     }
 
